@@ -143,4 +143,25 @@ namespace TextRoguelike
             return Health > 0;
         }
     }
+
+    public class Skeleton : Enemy
+    {
+        public Skeleton() : base("Скелет", 25, 10, 2) { }
+
+        public override void PerformAttack(Player player)
+        {
+            // Логика атаки скелета с игнором защиты
+        }
+
+        public override void TakeDamage(int damage)
+        {
+            Health -= damage;
+            if (Health < 0) Health = 0;
+        }
+
+        public override bool IsAlive()
+        {
+            return Health > 0;
+        }
+    }
 }
