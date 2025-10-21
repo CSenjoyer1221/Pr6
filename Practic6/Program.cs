@@ -187,4 +187,52 @@ namespace TextRoguelike
             return Health > 0;
         }
     }
+
+    public class VVG : Goblin
+    {
+        public VVG() : base()
+        {
+            Name = "ВВГ";
+            Health = (int)(MaxHealth * 2.0);
+            MaxHealth = Health;
+            Attack = (int)(Attack * 1.5);
+            Defense = (int)(Defense * 1.2);
+        }
+    }
+
+    public class Kovalsky : Skeleton
+    {
+        public Kovalsky() : base()
+        {
+            Name = "Ковальский";
+            Health = (int)(MaxHealth * 2.5);
+            MaxHealth = Health;
+            Attack = (int)(Attack * 1.3);
+            Defense = (int)(Defense * 1.4);
+        }
+    }
+
+    public class ArchmageCPP : Mage
+    {
+        public ArchmageCPP() : base()
+        {
+            Name = "Архимаг C++";
+            Health = (int)(MaxHealth * 1.8);
+            MaxHealth = Health;
+            Attack = (int)(Attack * 1.6);
+            Defense = (int)(Defense * 1.1);
+        }
+    }
+
+    public class PestovC : Skeleton
+    {
+        public PestovC() : base()
+        {
+            Name = "Пестов С--";
+            Health = (int)(MaxHealth * 1.3);
+            MaxHealth = Health;
+            Attack = (int)(Attack * 1.8);
+            Defense = (int)(Defense * 0.6);
+        }
+    }
 }
