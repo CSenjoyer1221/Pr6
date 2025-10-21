@@ -310,6 +310,31 @@ namespace TextRoguelike
         {
 
         }
+
+        private void ProcessTurn()
+        {
+
+        }
+
+        private void EncoudnterEnemy()
+        {
+
+        }
+
+        private void Battle(Enemy enemy)
+        {
+
+        }
+
+        private Enemy GenerateEnemy()
+        {
+            return new Goblin();
+        }
+
+        private Enemy GenerateBoss()
+        {
+            return new VVG();
+        }
     }
 
     class Program
