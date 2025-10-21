@@ -120,4 +120,27 @@ namespace TextRoguelike
         public abstract void TakeDamage(int damage);
         public abstract bool IsAlive();
     }
+
+    public class Goblin : Enemy
+    {
+        private double criticalChance = 0.2;
+
+        public Goblin() : base("Гоблин", 30, 8, 3) { }
+
+        public override void PerformAttack(Player player)
+        {
+ 
+        }
+
+        public override void TakeDamage(int damage)
+        {
+            Health -= damage;
+            if (Health < 0) Health = 0;
+        }
+
+        public override bool IsAlive()
+        {
+            return Health > 0;
+        }
+    }
 }
