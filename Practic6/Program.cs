@@ -96,4 +96,28 @@ namespace TextRoguelike
             }
         }
     }
+
+    public abstract class Enemy
+    {
+        public string Name { get; protected set; }
+        public int Health { get; protected set; }
+        public int MaxHealth { get; protected set; }
+        public int Attack { get; protected set; }
+        public int Defense { get; protected set; }
+
+        protected Random random = new Random();
+
+        public Enemy(string name, int health, int attack, int defense)
+        {
+            Name = name;
+            Health = health;
+            MaxHealth = health;
+            Attack = attack;
+            Defense = defense;
+        }
+
+        public abstract void PerformAttack(Player player);
+        public abstract void TakeDamage(int damage);
+        public abstract bool IsAlive();
+    }
 }
