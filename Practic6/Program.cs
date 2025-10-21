@@ -65,4 +65,35 @@ namespace TextRoguelike
             player.Heal(HealAmount);
         }
     }
+
+    public class Chest
+    {
+        private static Random random = new Random();
+
+        public Item Open()
+        {
+            int itemType = random.Next(3);
+
+            switch (itemType)
+            {
+                case 0: 
+                    string[] weaponNames = { "Меч", "Топор", "Кинжал", "Булава" };
+                    return new Weapon(weaponNames[random.Next(weaponNames.Length)],
+                                    random.Next(5, 15),
+                                    random.Next(10, 30));
+
+                case 1: 
+                    string[] armorNames = { "Кольчуга", "Латы", "Кожаная броня", "Щит" };
+                    return new Armor(armorNames[random.Next(armorNames.Length)],
+                                   random.Next(3, 10),
+                                   random.Next(8, 25));
+
+                case 2: 
+                    return new Potion("Лечебное зелье", 30, 15);
+
+                default:
+                    return new Potion("Лечебное зелье", 30, 15);
+            }
+        }
+    }
 }
