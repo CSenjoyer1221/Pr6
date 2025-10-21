@@ -76,19 +76,19 @@ namespace TextRoguelike
 
             switch (itemType)
             {
-                case 0: 
+                case 0:
                     string[] weaponNames = { "Меч", "Топор", "Кинжал", "Булава" };
                     return new Weapon(weaponNames[random.Next(weaponNames.Length)],
                                     random.Next(5, 15),
                                     random.Next(10, 30));
 
-                case 1: 
+                case 1:
                     string[] armorNames = { "Кольчуга", "Латы", "Кожаная броня", "Щит" };
                     return new Armor(armorNames[random.Next(armorNames.Length)],
                                    random.Next(3, 10),
                                    random.Next(8, 25));
 
-                case 2: 
+                case 2:
                     return new Potion("Лечебное зелье", 30, 15);
 
                 default:
@@ -129,7 +129,7 @@ namespace TextRoguelike
 
         public override void PerformAttack(Player player)
         {
- 
+
         }
 
         public override void TakeDamage(int damage)
@@ -290,6 +290,20 @@ namespace TextRoguelike
         public int CalculateDefense()
         {
             return CurrentArmor?.Defense ?? 3;
+        }
+    }
+
+    public class Game
+    {
+        private Player player;
+        private Random random;
+        private int turnCount;
+
+        public Game(string playerName)
+        {
+            player = new Player(playerName);
+            random = new Random();
+            turnCount = 0;
         }
     }
 }
