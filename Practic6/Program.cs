@@ -305,5 +305,22 @@ namespace TextRoguelike
             random = new Random();
             turnCount = 0;
         }
+
+        public void StartGame()
+        {
+
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Добро пожаловать в игру!");
+            Console.WriteLine("Введите имя персонажа: ");
+            string playerName = Console.ReadLine();
+            Game game = new Game(playerName);
+            game.StartGame();
+        }
     }
 }
