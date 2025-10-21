@@ -235,4 +235,61 @@ namespace TextRoguelike
             Defense = (int)(Defense * 0.6);
         }
     }
+
+    public class Player
+    {
+        public string Name { get; private set; }
+        public int Health { get; private set; }
+        public int MaxHealth { get; private set; }
+        public Weapon CurrentWeapon { get; private set; }
+        public Armor CurrentArmor { get; private set; }
+        public bool IsFrozen { get; set; }
+
+        public Player(string name)
+        {
+            Name = name;
+            MaxHealth = 100;
+            Health = MaxHealth;
+            // Стартовое снаряжение
+            CurrentWeapon = new Weapon("Старый меч", 5, 5);
+            CurrentArmor = new Armor("Кожаный доспех", 3, 5);
+        }
+
+        public void EquipWeapon(Weapon weapon)
+        {
+            CurrentWeapon = weapon;
+        }
+
+        public void EquipArmor(Armor armor)
+        {
+            CurrentArmor = armor;
+        }
+
+        public void Heal(int amount)
+        {
+            Health += amount;
+            if (Health > MaxHealth) Health = MaxHealth;
+        }
+
+        public void TakeDamage(int damage)
+        {
+            Health -= damage;
+            if (Health < 0) Health = 0;
+        }
+
+        public bool IsAlive()
+        {
+            return Health > 0;
+        }
+
+        public int CalculateAttack()
+        {
+            return CurrentWeapon?.AttackPower ?? 5;
+        }
+
+        public int CalculateDefense()
+        {
+            return CurrentArmor?.Defense ?? 3;
+        }
+    }
 }
