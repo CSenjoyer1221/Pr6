@@ -49,4 +49,20 @@ namespace TextRoguelike
             player.EquipArmor(this);
         }
     }
+
+    public class Potion : Item
+    {
+        public int HealAmount { get; private set; }
+
+        public Potion(string name, int healAmount, int value)
+            : base(name, value)
+        {
+            HealAmount = healAmount;
+        }
+
+        public override void Use(Player player)
+        {
+            player.Heal(HealAmount);
+        }
+    }
 }
