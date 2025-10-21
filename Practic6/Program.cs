@@ -164,4 +164,27 @@ namespace TextRoguelike
             return Health > 0;
         }
     }
+
+    public class Mage : Enemy
+    {
+        private double freezeChance = 0.25; // 25% шанс заморозки
+
+        public Mage() : base("Маг", 20, 12, 1) { }
+
+        public override void PerformAttack(Player player)
+        {
+            // Логика атаки мага с шансом заморозки
+        }
+
+        public override void TakeDamage(int damage)
+        {
+            Health -= damage;
+            if (Health < 0) Health = 0;
+        }
+
+        public override bool IsAlive()
+        {
+            return Health > 0;
+        }
+    }
 }
